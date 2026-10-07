@@ -7,3 +7,7 @@
 .btn {
   @apply inline-block px-4 py-3 text-[18px] rounded-4xl
 }
+
+h2 {
+  @apply text-[28px] md:text-[32px] font-extrabold
+}
