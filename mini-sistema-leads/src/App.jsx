@@ -1,10 +1,14 @@
 import logo from './assets/logo.png';
+import ConversaMariana from './assets/conversa-mariana.png';
+import ConversaLucas from './assets/conversa-lucas.png';
+import ConversaSamantha from './assets/conversa-samantha.png';
 import MercadoIcon from './icons/MercadoIcon';
 import FaleIcon from './icons/FaleIcon';
 import EstudeIcon from './icons/EstudeIcon';
 import EntrevistaIcon from './icons/EntrevistaIcon';
 import InglesIcon from './icons/InglesIcon';
 import EvoluirIcon from './icons/EvoluirIcon';
+import { useState, useEffect } from 'react'
 
 function Hero() {
   return (
@@ -68,11 +72,59 @@ function Beneficios() {
   )
 }
 
+function Depoimentos() {
+  const [slideAtual, setSlideAtual] = useState(0)
+
+  function proximoSlide() {
+    setSlideAtual((valorAnterior) => (valorAnterior + 1) % slides.length)
+  }
+
+  function anteriorSlide() {
+    setSlideAtual((valorAnterior) => (valorAnterior - 1 + slides.length) % slides.length)
+  }
+
+  const slides = [
+    ConversaMariana,
+    ConversaLucas,
+    ConversaSamantha
+  ]
+
+  useEffect(() => {
+    const intervalo = setInterval(() => {
+      proximoSlide()
+    }, 10000)
+
+    return () => {
+      clearInterval(intervalo)
+    }
+  }, [])
+
+  return (
+    <section className="pt-15 pb-25 md:py-20">
+          <div className="container">
+              <h2 className="text-center mb-5 md:mb-10">Depoimentos dos nossos Alunos</h2>
+
+              <div id="carrossel" className="border-2 border-[#ff3131] relative rounded-xl md:w-1/2 mx-auto">
+                  <div className="carrossel-container">
+                      <div className="slide">
+                          <img className="w-full rounded-xl" src={slides[slideAtual]} alt="Depoimento" />
+                      </div>
+                  </div>
+                  
+                  <button onClick={anteriorSlide} className="bg-[#ff3131] hover:bg-[#19346e] absolute -bottom-18 left-3 md:top-1/2 md:-left-5 size-10 text-[18px] rounded-full text-white cursor-pointer">&lt;</button>
+                  <button onClick={proximoSlide} className="bg-[#ff3131] hover:bg-[#19346e] absolute -bottom-18 right-3 md:top-1/2 md:-right-5 size-10 text-[18px] rounded-full text-white cursor-pointer">&gt;</button>
+              </div>
+          </div>
+      </section>
+  )
+}
+
 function App() {
   return (
     <>
       <Hero />
       <Beneficios />
+      <Depoimentos />
     </>
   )
 }
