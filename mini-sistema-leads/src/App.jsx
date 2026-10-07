@@ -370,7 +370,7 @@ function Formulario() {
 
 function Footer() {
   return (
-    <footer>
+    <footer className="bg-[#19346e] text-white py-3 text-center">
         <p>© 2026 SejaFluente. Todos os direitos reservados.</p>
     </footer>
   )
