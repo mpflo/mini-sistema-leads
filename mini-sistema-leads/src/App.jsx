@@ -235,7 +235,7 @@ function Formulario() {
 
           {/* Formulário */}
           <div>
-            <form action="salvar.php" className="flex flex-col gap-4">
+            <form action="http://localhost/mini-sistema-leads/mini-sistema-leads/salvar.php" method="POST" className="flex flex-col gap-4">
 
               <div>
                 <label
