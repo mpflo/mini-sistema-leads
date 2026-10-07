@@ -215,6 +215,167 @@ function Planos() {
   )
 }
 
+function Formulario() {
+  return (
+    <section className="bg-[#b9b9f7] py-10 md:py-20">
+      <div className="container">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center">
+
+          {/* Texto */}
+          <div>
+            <h2 className="text-[32px] md:text-[40px] font-bold mb-6">
+              Dê o próximo passo para sua carreira
+            </h2>
+
+            <p className="text-[18px] leading-relaxed max-w-md">
+              Conte um pouco sobre seus objetivos e descubra qual plano do
+              SejaFluente combina melhor com você.
+            </p>
+          </div>
+
+          {/* Formulário */}
+          <div>
+            <form action="salvar.php" className="flex flex-col gap-4">
+
+              <div>
+                <label
+                  htmlFor="nome"
+                  className="block mb-1 text-sm"
+                >
+                  Nome
+                </label>
+
+                <input
+                  type="text"
+                  id="nome"
+                  name="nome"
+                  className="w-full bg-white rounded-full px-5 py-3"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="telefone"
+                  className="block mb-1 text-sm"
+                >
+                  Telefone / WhatsApp
+                </label>
+
+                <input
+                  type="tel"
+                  id="telefone"
+                  name="telefone"
+                  className="w-full bg-white rounded-full px-5 py-3"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="motivo"
+                  className="block mb-1 text-sm"
+                >
+                  Por que você precisa do curso?
+                </label>
+
+                <select
+                  name="motivo"
+                  id="motivo"
+                  className="w-full bg-white rounded-full px-5 py-3"
+                >
+                  <option value="" disabled selected>
+                    Selecione uma opção
+                  </option>
+                  <option value="trabalho">
+                    Quero trabalhar para uma empresa internacional
+                  </option>
+                  <option value="estudos">Para estudos</option>
+                  <option value="viagem">Vou viajar em breve</option>
+                  <option value="carreira-atual">
+                    Preciso do inglês para minha carreira atual
+                  </option>
+                  <option value="outros">Outra razão</option>
+                </select>
+              </div>
+
+              {/* Nível */}
+              <div>
+                <span className="block mb-2 text-sm">
+                  Qual seu nível de inglês?
+                </span>
+
+                <div className="flex gap-4">
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="radio"
+                      id="basico"
+                      name="nivel"
+                      value="basico"
+                      defaultChecked
+                    />
+                    Básico
+                  </label>
+
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="radio"
+                      id="intermediario"
+                      name="nivel"
+                      value="intermediario"
+                    />
+                    Intermediário
+                  </label>
+
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="radio"
+                      id="avancado"
+                      name="nivel"
+                      value="avancado"
+                    />
+                    Avançado
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="mensagem"
+                  className="block mb-1 text-sm"
+                >
+                  Conte um pouco sobre seu objetivo com o inglês.
+                </label>
+
+                <textarea
+                  name="mensagem"
+                  id="mensagem"
+                  className="w-full bg-white rounded-3xl px-5 py-4 min-h-[120px] resize-none"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="bg-[#19346e] hover:bg-[#112142] text-white rounded-full px-6 py-3 self-center md:self-start cursor-pointer"
+              >
+                Quero começar minha jornada
+              </button>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Footer() {
+  return (
+    <footer>
+        <p>© 2026 SejaFluente. Todos os direitos reservados.</p>
+    </footer>
+  )
+}
+
 function App() {
   return (
     <>
@@ -222,6 +383,8 @@ function App() {
       <Beneficios />
       <Depoimentos />
       <Planos />
+      <Formulario />
+      <Footer />
     </>
   )
 }
