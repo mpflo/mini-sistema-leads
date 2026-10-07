@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: http://localhost:5173");
 
 $pdo = new PDO(
     'mysql:host=localhost;dbname=seja_fluente;charset=utf8mb4',

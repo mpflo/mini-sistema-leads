@@ -216,6 +216,17 @@ function Planos() {
 }
 
 function Formulario() {
+  function enviarFormulario(event) {
+    event.preventDefault()
+
+    const form = event.target
+    const dados = new FormData(form)
+
+    fetch("http://localhost/mini-sistema-leads/mini-sistema-leads/salvar.php", {
+      method: "POST",
+      body: dados
+    })
+  }
   return (
     <section className="bg-[#b9b9f7] py-10 md:py-20">
       <div className="container">
@@ -235,7 +246,7 @@ function Formulario() {
 
           {/* Formulário */}
           <div>
-            <form action="http://localhost/mini-sistema-leads/mini-sistema-leads/salvar.php" method="POST" className="flex flex-col gap-4">
+            <form action="http://localhost/mini-sistema-leads/mini-sistema-leads/salvar.php" method="POST" className="flex flex-col gap-4" onSubmit={enviarFormulario}>
 
               <div>
                 <label
